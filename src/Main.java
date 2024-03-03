@@ -1,16 +1,27 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-        /*Créer une classe “HelloWorld.java” qui écrit “hello world” dans la console.*/
+        /*
+        Ecrire un programme java qui demande à l’utilisateur de saisir un nombre entier et de lui afficher que le nombre est pair ou impair selon la valeur tapée*/
+        Scanner scanner = new Scanner(System.in);
+        int entierSaisi;
+        String typeNombre;
 
-        HelloWorld helloWorld = new HelloWorld();
+        try {
+            System.out.println("Saisir un nombre entier : ");
+            entierSaisi = scanner.nextInt();
+            typeNombre = entierSaisi % 2 == 0 ? "pair" : "impair";
 
-        helloWorld.direHello();
+            System.out.println("Le nombre saisi " + entierSaisi + " est " + typeNombre);
+        } catch (InputMismatchException e) {
+            System.out.println("Merci de saisir un nombre entier valide");
+        }
+
 
         /*
-        Ecrire un programme java qui demande à l’utilisateur de saisir un nombre entier et de lui afficher que le nombre est pair ou impair selon la valeur tapée
-
-
         Ecrire un programme Java qui calcul la somme des 100 premiers entiers
 
         Ecrire un programme Java qui demande à l'utilisateur de saisir un nombre entier n et lui affiche  la somme des n premiers nombres entiers
