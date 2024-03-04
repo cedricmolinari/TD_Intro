@@ -1,30 +1,26 @@
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
+import java.util.stream.*;
 public class Main {
 
     public static void main(String[] args) {
         /*
-        Ecrire un programme java qui demande à l’utilisateur de saisir un nombre entier et de lui afficher que le nombre est pair ou impair selon la valeur tapée*/
-        Scanner scanner = new Scanner(System.in);
-        int entierSaisi;
-        String typeNombre;
+        Ecrire un programme Java qui calcul la somme des 100 premiers entiers */
 
-        try {
-            System.out.println("Saisir un nombre entier : ");
-            entierSaisi = scanner.nextInt();
-            typeNombre = entierSaisi % 2 == 0 ? "pair" : "impair";
+        // par itération
+        System.out.println("La somme des 100 premiers entiers : " + calculSuite());
 
-            System.out.println("Le nombre saisi " + entierSaisi + " est " + typeNombre);
-        } catch (InputMismatchException e) {
-            System.out.println("Merci de saisir un nombre entier valide");
-        }
+        // par formule
+        int n = 100;
+        int somme;
+        somme = (n * (n + 1)) / 2;
+        System.out.println("La somme des 100 premiers entiers : " + somme);
 
-
-        /*
-        Ecrire un programme Java qui calcul la somme des 100 premiers entiers
-
-        Ecrire un programme Java qui demande à l'utilisateur de saisir un nombre entier n et lui affiche  la somme des n premiers nombres entiers
+    }
+    public static int calculSuite() {
+        return IntStream.iterate(1, n -> n + 1)
+                .limit(100)
+                .sum();
+    }
+    /*Ecrire un programme Java qui demande à l'utilisateur de saisir un nombre entier n et lui affiche  la somme des n premiers nombres entiers
 
         Ecrire un programme Java qui calcul factorielle de 5.
 
@@ -56,7 +52,4 @@ public class Main {
         créez plusieurs instances de la classe “Personne” et utilisant des constructeurs que vous avez définis
         Créez une fonction toString qui renvoie une chaîne de caractères qui présente la personne
         Affichez dans le terminal*/
-
-
-    }
 }
