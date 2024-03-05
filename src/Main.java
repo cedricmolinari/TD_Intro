@@ -4,33 +4,16 @@ import java.util.stream.*;
 
 public class Main {
     public static void main(String[] args) {
-        /*Ecrire un programme Java qui demande à l'utilisateur de saisir un nombre entier n et lui affiche  la somme des n
-     premiers nombres entiers */
-        Scanner scanner = new Scanner(System.in);
-        try {
-        System.out.println("Saisir un nombre entier n : ");
-        int chiffreSaisi = scanner.nextInt();
-
-            System.out.println("La somme des n nombres entiers est : " + sommeNombresEntiers(chiffreSaisi));
-        } catch (InputMismatchException e) {
-            System.out.println("Merci de saisir un nombre valide.");
-        }
+        /* Ecrire un programme Java qui calcul factorielle de 5.*/
+        System.out.println("La factorielle de 5 est : " + factorielleCinq());
 
     }
-    public static int sommeNombresEntiers(int nombre) {
-        return IntStream.iterate(1, n -> n + 1)
-                .limit(nombre)
-                .sum();
+    public static long factorielleCinq() {
+        return LongStream.rangeClosed(1, 5)
+                .reduce(1, (long a, long b) -> a * b);
     }
 
-
-
-
-
-
-        /* Ecrire un programme Java qui calcul factorielle de 5.
-
-        Ecrire un programme Java calcul factorielle d'un entier  n  saisi par l’utilisateur
+        /*Ecrire un programme Java calcul factorielle d'un entier  n  saisi par l’utilisateur
 
 
         Java fonctions
