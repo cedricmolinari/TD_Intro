@@ -1,34 +1,30 @@
 import java.util.InputMismatchException;
+import java.util.OptionalInt;
 import java.util.Scanner;
 import java.util.stream.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        /* Exercice 1 : Écrire une fonction qui retourne le carré d’un nombre */
+        /* Exercice 2 : Écrire une fonction qui retourne le plus grand nombre parmi 2 nombres données. */
         Scanner scanner = new Scanner(System.in);
         try {
             System.out.println("Saisir un nombre : ");
-            int nombreSaisi = scanner.nextInt();
-            System.out.println("Le carré de ce nombre est : " + carreNombre(nombreSaisi));
+            int nombreSaisi1 = scanner.nextInt();
+            System.out.println("Saisir un 2e nombre : ");
+            int nombreSaisi2 = scanner.nextInt();
+            System.out.println("Le nombre le plus grand est : " + nombrePlusGrand(nombreSaisi1, nombreSaisi2));
         } catch (InputMismatchException e) {
-            System.out.println("Merci de saisir un nombre valide.");
+            System.out.println("Merci de saisir des nombres valides.");
         }
     }
-    public static long carreNombre(int nombre) {
-        return (long) nombre * nombre;
+    public static int nombrePlusGrand(int a, int b) {
+        IntStream nombres = IntStream.of(a, b);
+        return nombres.max().getAsInt();
     }
 
         /*Java fonctions
 
-        Définition de fonction :
-
-        private static void sayHelloTo(String nom) {
-            System.out.println("Hello " + nom);
-        }
-        (Avec “Void” = vide le type de retour de la fonction)
-        Exercice 2
-        Écrire une fonction qui retourne le plus grand nombre parmi 2 nombres données.
         Exercice 3
         Écrire une fonction qui retourne la somme des nombres d’un tableau donné en paramètre
         Exercice 4
