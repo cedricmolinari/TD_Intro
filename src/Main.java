@@ -5,19 +5,18 @@ import java.util.stream.*;
 public class Main {
     public static void main(String[] args) {
 
-        /* Ecrire un programme Java calcul factorielle d'un entier  n  saisi par l’utilisateur */
+        /* Exercice 1 : Écrire une fonction qui retourne le carré d’un nombre */
         Scanner scanner = new Scanner(System.in);
         try {
-            System.out.println("Saisir un entier n : ");
-            int entierSaisi = scanner.nextInt();
-            System.out.println("La factorielle de n est : " + factorielleNombre(entierSaisi));
+            System.out.println("Saisir un nombre : ");
+            int nombreSaisi = scanner.nextInt();
+            System.out.println("Le carré de ce nombre est : " + carreNombre(nombreSaisi));
         } catch (InputMismatchException e) {
-            System.out.println("Merci de saisir un entier valide.");
+            System.out.println("Merci de saisir un nombre valide.");
         }
     }
-    public static long factorielleNombre(int nombre) {
-        return LongStream.rangeClosed(1, nombre)
-                .reduce(1, (long a, long b) -> a * b);
+    public static long carreNombre(int nombre) {
+        return (long) nombre * nombre;
     }
 
         /*Java fonctions
@@ -28,9 +27,6 @@ public class Main {
             System.out.println("Hello " + nom);
         }
         (Avec “Void” = vide le type de retour de la fonction)
-        Exercice 1
-
-        Écrire une fonction qui retourne le carré d’un nombre
         Exercice 2
         Écrire une fonction qui retourne le plus grand nombre parmi 2 nombres données.
         Exercice 3
