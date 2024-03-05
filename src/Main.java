@@ -4,19 +4,23 @@ import java.util.stream.*;
 
 public class Main {
     public static void main(String[] args) {
-        /* Ecrire un programme Java qui calcul factorielle de 5.*/
-        System.out.println("La factorielle de 5 est : " + factorielleCinq());
 
+        /* Ecrire un programme Java calcul factorielle d'un entier  n  saisi par l’utilisateur */
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.println("Saisir un entier n : ");
+            int entierSaisi = scanner.nextInt();
+            System.out.println("La factorielle de n est : " + factorielleNombre(entierSaisi));
+        } catch (InputMismatchException e) {
+            System.out.println("Merci de saisir un entier valide.");
+        }
     }
-    public static long factorielleCinq() {
-        return LongStream.rangeClosed(1, 5)
+    public static long factorielleNombre(int nombre) {
+        return LongStream.rangeClosed(1, nombre)
                 .reduce(1, (long a, long b) -> a * b);
     }
 
-        /*Ecrire un programme Java calcul factorielle d'un entier  n  saisi par l’utilisateur
-
-
-        Java fonctions
+        /*Java fonctions
 
         Définition de fonction :
 
